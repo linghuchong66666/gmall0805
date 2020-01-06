@@ -1,4 +1,4 @@
-package com.atguigu.gmallsms;
+package com.atguigu.gmall.sms;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

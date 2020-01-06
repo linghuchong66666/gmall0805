@@ -1,7 +1,7 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
 
 
 import com.atguigu.core.bean.PageVo;
@@ -32,6 +32,13 @@ import com.atguigu.gmall.pms.service.CategoryService;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    @GetMapping
+    public Resp<List<CategoryEntity>> queryCategorierByLevelOrId(@RequestParam(value = "level",defaultValue = "0")Integer level
+            ,@RequestParam(value = "parentCid",required = false)Long pid){
+        List<CategoryEntity> categoryEntityList = this.categoryService.queryCategorierByLevelOrId(level,pid);
+        return Resp.ok(categoryEntityList);
+    }
 
     /**
      * 列表
